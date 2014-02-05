@@ -3,6 +3,7 @@
 __*.*__
 *.sqlite
 *.dll
+*.fsx
 Testing Data/
 packages/*
 !packages/repositories.config

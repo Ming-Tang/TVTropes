@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="TopToBottom" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Main.A" Bounds="522.54,691.77,56.9200000000001,25.96" ErrorMessage="Circular reference found involving:  Main.A (Main.A)" IsStronglyConnected="True" />
+    <Node Id="Main.B" Bounds="276.97,807.065,56.0599999999999,25.96" ErrorMessage="Circular reference found involving:  Main.B (Main.B)" IsStronglyConnected="True" />
+    <Node Id="Main.C" Bounds="180.695,634.1225,56.61,25.96" ErrorMessage="Circular reference found involving:  Main.C (Main.C)" IsStronglyConnected="True" />
+    <Node Id="Main.D" Bounds="52.2033333333335,576.475,57.5933333333334,25.96" ErrorMessage="Circular reference found involving:  Main.D (Main.D)" Hub="45" IsStronglyConnected="True" />
+    <Node Id="Main.E" Bounds="181.375,691.77,55.25,25.96" />
+    <Node Id="Main.H" Bounds="335.15,864.7125,57.7,25.96" ErrorMessage="Circular reference found involving:  Main.H (Main.H)" IsStronglyConnected="True" />
+    <Node Id="Main.Island1" Bounds="757.806666666666,0,86.8066666666666,25.96" ErrorMessage="Unreferenced node detected:Main.Island1 (Main.Island1)" IsUnreferenced="True" />
+    <Node Id="Main.Island2" Bounds="641,0,86.8066666666664,25.96" ErrorMessage="Unreferenced node detected:Main.Island2 (Main.Island2)" IsUnreferenced="True" />
+    <Node Id="Main.Source" Bounds="299.316666666667,0,85.3666666666668,25.96" ErrorMessage="Unreferenced node detected:Main.Source (Main.Source)" IsUnreferenced="True" />
+    <Node Id="N.A" Bounds="491,749.4175,50,25.9599999999999" ErrorMessage="Circular reference found involving:  N.A (N.A)" IsStronglyConnected="True" />
+    <Node Id="N.B" Bounds="445,403.5325,50,25.96" ErrorMessage="Circular reference found involving:  N.B (N.B)" IsStronglyConnected="True" />
+    <Node Id="N.C" Bounds="435,634.1225,50,25.96" ErrorMessage="Circular reference found involving:  N.C (N.C)" IsStronglyConnected="True" />
+    <Node Id="N.D" />
+    <Node Id="N.E" Bounds="297,461.18,50,25.96" ErrorMessage="Circular reference found involving:  N.E (N.E)" IsStronglyConnected="True" />
+    <Node Id="N.F" Bounds="152,518.8275,50,25.96" ErrorMessage="Circular reference found involving:  N.F (N.F)" IsStronglyConnected="True" />
+    <Node Id="N.G" Bounds="272,576.475,50,25.96" ErrorMessage="Circular reference found involving:  N.G (N.G)" IsStronglyConnected="True" />
+    <Node Id="N.Sink" Bounds="337.195,922.36,53.61,25.96" />
+    <Node Id="S.A" Bounds="314,230.59,50,25.96" ErrorMessage="Circular reference found involving:  S.A (S.A)" IsStronglyConnected="True" />
+    <Node Id="S.B" Bounds="381,345.885,50,25.96" ErrorMessage="Circular reference found involving:  S.B (S.B)" IsStronglyConnected="True" />
+    <Node Id="S.C" Bounds="325,288.2375,50,25.96" ErrorMessage="Circular reference found involving:  S.C (S.C)" IsStronglyConnected="True" />
+    <Node Id="S.D" Bounds="169,172.9425,50,25.96" ErrorMessage="Circular reference found involving:  S.D (S.D)" Hub="50" IsStronglyConnected="True" />
+    <Node Id="S.E" Bounds="373,115.295,50,25.96" />
+    <Node Id="S.F" Bounds="325,172.9425,50,25.96" />
+    <Node Id="S.G" Bounds="317,57.6475,50,25.96" />
+  </Nodes>
+  <Links>
+    <Link Source="Main.A" Target="N.A" Bounds="528.551452636719,717.72998046875,14.56787109375,23.9944458007813" IsCircularLink="True" />
+    <Link Source="Main.A" Target="N.B" Bounds="503.533447265625,427.751556396484,52.466552734375,264.018463134766" IsCircularLink="True" />
+    <Link Source="Main.B" Target="Main.H" Bounds="317.158721923828,833.025024414063,25.7726440429688,25.6321411132813" IsCircularLink="True" />
+    <Link Source="Main.B" Target="N.A" Bounds="333.029998779297,770.709289550781,149.231292724609,40.74072265625" IsCircularLink="True" />
+    <Link Source="Main.C" Target="Main.B" Bounds="235.253829956055,659.928527832031,64.1757659912109,138.419189453125" IsCircularLink="True" />
+    <Link Source="Main.C" Target="Main.E" Bounds="209,660.08251953125,0,22.6875" />
+    <Link Source="Main.C" Target="S.A" Bounds="210.697372436523,255.483520507813,94.8234710693359,378.638977050781" IsCircularLink="True" />
+    <Link Source="Main.D" Target="Main.B" Bounds="86.1787185668945,602.434997558594,182.387260437012,204.059509277344" IsCircularLink="True" />
+    <Link Source="Main.D" Target="Main.C" Bounds="108.555610656738,601.865234375,64.9948043823242,29.2717895507813" IsCircularLink="True" />
+    <Link Source="Main.D" Target="Main.E" Bounds="95.4103393554688,602.434997558594,92.4921417236328,83.3115844726563" />
+    <Link Source="Main.D" Target="Main.H" Bounds="82.8513259887695,602.434997558594,243.359825134277,270.829772949219" IsCircularLink="True" />
+    <Link Source="Main.D" Target="N.D" Bounds="7,600.582702636719,321.224182128906,331.868774414063" />
+    <Link Source="Main.H" Target="N.C" Bounds="371.205169677734,668.754699707031,82.7853088378906,195.957824707031" IsCircularLink="True" />
+    <Link Source="Main.H" Target="N.D" Bounds="364,890.672485351563,0,22.6875" />
+    <Link Source="Main.H" Target="N.E" Bounds="352.259735107422,492.351196289063,17.5467224121094,372.361328125" IsCircularLink="True" />
+    <Link Source="Main.Source" Target="Main.D" Bounds="22.8278141021729,16.4262008666992,276.48886680603,551.183967590332" />
+    <Link Source="Main.Source" Target="Main.H" Bounds="384.683319091797,17.5706481933594,225.316680908203,854.986907958984" />
+    <Link Source="Main.Source" Target="S.B" Bounds="384.683319091797,20.6693363189697,87.3166809082031,316.601842880249" />
+    <Link Source="Main.Source" Target="S.D" Bounds="194,21.2927951812744,105.316680908203,142.649709701538" />
+    <Link Source="Main.Source" Target="S.F" Bounds="278,25.9599990844727,38.6448059082031,146.609413146973" />
+    <Link Source="Main.Source" Target="S.G" Bounds="342,25.9599990844727,0,22.6875" />
+    <Link Source="N.A" Target="Main.B" Bounds="341.740447998047,775.377502441406,156.696960449219,34.6343994140625" IsCircularLink="True" />
+    <Link Source="N.A" Target="N.D" Bounds="399.563873291016,773.842407226563,195.078460693359,153.095275878906" />
+    <Link Source="N.B" Target="N.C" Bounds="466.546081542969,429.492492675781,3.45391845703125,195.864929199219" IsCircularLink="True" />
+    <Link Source="N.B" Target="N.E" Bounds="355.734405517578,429.492492675781,99.8552551269531,36.28515625" IsCircularLink="True" />
+    <Link Source="N.C" Target="Main.A" Bounds="484.761627197266,658.25439453125,47.6515197753906,27.2164306640625" IsCircularLink="True" />
+    <Link Source="N.C" Target="Main.B" Bounds="318.0009765625,658.25439453125,117.237396240234,141.20068359375" IsCircularLink="True" />
+    <Link Source="N.C" Target="N.A" Bounds="474.410339355469,660.08251953125,35.5801391601563,80.6627807617188" IsCircularLink="True" />
+    <Link Source="N.C" Target="N.D" Bounds="380.099243164063,660.08251953125,97.4684753417969,255.268127441406" />
+    <Link Source="N.E" Target="Main.B" Bounds="307.557922363281,487.140014648438,27.9508361816406,310.985656738281" IsCircularLink="True" />
+    <Link Source="N.E" Target="Main.D" Bounds="99.0053176879883,480.710845947266,197.994682312012,89.1348571777344" IsCircularLink="True" />
+    <Link Source="N.E" Target="N.F" Bounds="210.175796508789,483.398376464844,86.8242034912109,34.13671875" IsCircularLink="True" />
+    <Link Source="N.E" Target="N.G" Bounds="300.289428710938,487.140014648438,16.3067016601563,80.4349975585938" IsCircularLink="True" />
+    <Link Source="N.E" Target="S.A" Bounds="302.630126953125,262.363861083984,17.5685729980469,198.816131591797" IsCircularLink="True" />
+    <Link Source="N.F" Target="Main.C" Bounds="191.410339355469,544.787475585938,17.5896606445313,80.3350219726563" IsCircularLink="True" />
+    <Link Source="N.F" Target="Main.D" Bounds="116.752182006836,544.787475585938,45.8374786376953,28.540283203125" IsCircularLink="True" />
+    <Link Source="N.F" Target="N.D" Bounds="120.27912902832,544.787475585938,207.963851928711,386.845153808594" />
+    <Link Source="N.F" Target="N.G" Bounds="201.694793701172,543.105834960938,63.2152404785156,30.1278686523438" IsCircularLink="True" />
+    <Link Source="N.F" Target="S.D" Bounds="116,198.280517578125,44.5579681396484,321.935791015625" IsCircularLink="True" />
+    <Link Source="N.G" Target="N.C" Bounds="321.908386230469,600.170715332031,104.471771240234,36.8375244140625" IsCircularLink="True" />
+    <Link Source="S.A" Target="S.C" Bounds="341.476776123047,256.549987792969,4.35955810546875,22.8470153808594" IsCircularLink="True" />
+    <Link Source="S.A" Target="S.D" Bounds="227.175796508789,200.194900512695,86.8242034912109,34.13671875" IsCircularLink="True" />
+    <Link Source="S.B" Target="Main.E" Bounds="232.237182617188,371.845001220703,173.762817382813,314.299896240234" />
+    <Link Source="S.B" Target="N.B" Bounds="420.410339355469,371.845001220703,28.4921569824219,25.6640625" IsCircularLink="True" />
+    <Link Source="S.B" Target="S.A" Bounds="372.17578125,257.842407226563,33.82421875,88.0426025390625" IsCircularLink="True" />
+    <Link Source="S.B" Target="S.D" Bounds="214.560424804688,205.473373413086,166.439575195313,145.385025024414" IsCircularLink="True" />
+    <Link Source="S.C" Target="S.B" Bounds="360.807739257813,314.197509765625,24.1414184570313,25.6126403808594" IsCircularLink="True" />
+    <Link Source="S.D" Target="Main.D" Index="1" Bounds="62.1073455810547,190.892105102539,106.892654418945,376.615524291992" IsCircularLink="True" />
+    <Link Source="S.D" Target="Main.D" Bounds="81,192.299438476563,88,375.175537109375" IsCircularLink="True" />
+    <Link Source="S.D" Target="Main.E" Bounds="17.4221858978271,198.902496337891,168.99160194397,488.147796630859" />
+    <Link Source="S.D" Target="N.F" Index="1" Bounds="162.032791137695,198.902496337891,14.4046020507813,310.946594238281" IsCircularLink="True" />
+    <Link Source="S.D" Target="N.F" Bounds="178.177825927734,198.902496337891,15.8221740722656,310.937927246094" IsCircularLink="True" />
+    <Link Source="S.D" Target="S.A" Bounds="219,190.892105102539,116.104461669922,31.5846557617188" IsCircularLink="True" />
+    <Link Source="S.E" Target="N.B" Bounds="416.012908935547,141.255004882813,51.2840881347656,253.345184326172" />
+    <Link Source="S.E" Target="S.A" Bounds="372.17578125,141.255004882813,33.82421875,88.0426025390625" />
+    <Link Source="S.E" Target="S.F" Bounds="366.566619873047,141.255004882813,20.6256408691406,24.7711639404297" />
+    <Link Source="S.F" Target="S.A" Bounds="360.807739257813,198.902496337891,6.0736083984375,25.5963287353516" />
+    <Link Source="S.G" Target="S.B" Bounds="367,76.2571411132813,81.6666564941406,260.889862060547" />
+    <Link Source="S.G" Target="S.D" Bounds="218.62825012207,83.6074981689453,108.961410522461,83.9560699462891" />
+    <Link Source="S.G" Target="S.E" Bounds="355.960021972656,83.6074981689453,24.8268737792969,24.9393310546875" />
+    <Link Source="S.G" Target="S.F" Bounds="342,83.6074981689453,2.49029541015625,80.5393829345703" />
+  </Links>
+  <Properties>
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="ErrorMessage" Label="Error" Description="Error" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Hub" Label="Hub" Description="Node is in the top 10% of highly connected nodes" DataType="System.Int32" />
+    <Property Id="IsCircularLink" Label="Circular Link" Description="Link connects part of a strongly coupled component" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsStronglyConnected" Label="Circular References" Description="Node is part of a strongly coupled component" DataType="System.Boolean" />
+    <Property Id="IsUnreferenced" Label="Unreferenced" Description="Node has no links pointing to it from other nodes in the graph" DataType="System.Boolean" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="ToolTip" DataType="System.String" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Unreferenced" ToolTip="Node has no links pointing to it from other nodes in the graph" ValueLabel="True">
+      <Condition Expression="IsUnreferenced" />
+      <Setter Property="Background" Value="Purple" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Hub" ToolTip="Node is in the top 10% of highly connected nodes" ValueLabel="Hub">
+      <Condition Expression="HasValue(&quot;Hub&quot;)" />
+      <Setter Property="Background" Value="#FFFBA8A9" />
+    </Style>
+    <Style TargetType="Group" GroupLabel="Hub" ToolTip="Node is in the top 10% of highly connected nodes" ValueLabel="Hub Container">
+      <Condition Expression="IsHubContainer" />
+      <Setter Property="Stroke" Value="#FFFBA8A9" />
+      <Setter Property="StrokeThickness" Value="6" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Circular References" ToolTip="Node is part of a strongly coupled component" ValueLabel="Nodes">
+      <Condition Expression="IsStronglyConnected" />
+      <Setter Property="Stroke" Value="#D02030" />
+      <Setter Property="StrokeThickness" Value="2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Circular References" ToolTip="Node is part of a strongly coupled component" ValueLabel="Links">
+      <Condition Expression="IsCircularLink" />
+      <Setter Property="Stroke" Value="#D02030" />
+      <Setter Property="StrokeThickness" Value="2" />
+    </Style>
+  </Styles>
+</DirectedGraph>
