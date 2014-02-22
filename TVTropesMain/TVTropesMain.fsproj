@@ -74,6 +74,7 @@
   </Choose>
   <Import Project="$(FSharpTargetsPath)" Condition="Exists('$(FSharpTargetsPath)')" />
   <ItemGroup>
+    <None Include="__DISCARDED-LINK-PAIR__" />
     <Compile Include="Util.fs" />
     <Compile Include="Timing.fs" />
     <Compile Include="Data.fs" />

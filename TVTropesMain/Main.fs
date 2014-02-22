@@ -19,8 +19,7 @@ CREATE TABLE IF NOT EXISTS Page (
   Contents TEXT NOT NULL,
   Path STRING NOT NULL,
   ContentsAdded BOOL DEFAULT 0 NOT NULL,
-  LinksIndexed BOOL DEFAULT 0 NOT NULL,
-  LinkPairsIndexed BOOL DEFAULT 0 NOT NULL
+  LinksIndexed BOOL DEFAULT 0 NOT NULL
 );
                       
 CREATE TABLE IF NOT EXISTS Namespace (
@@ -34,17 +33,9 @@ CREATE TABLE IF NOT EXISTS Link (
   EndIndex INT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS LinkPair (
-  ToPageID1 INT NOT NULL,
-  ToPageID2 INT NOT NULL,
-  Count INT NOT NULL
-);
-
 CREATE INDEX IF NOT EXISTS index_Page_NamespaceID ON Page (NamespaceID ASC, Title ASC);
 CREATE INDEX IF NOT EXISTS index_Page_Title ON Page (Title ASC, NamespaceID ASC);
 CREATE INDEX IF NOT EXISTS index_Namespace_Name ON Namespace (Name ASC);
-CREATE INDEX IF NOT EXISTS index_LinkPair_ToPageID1 ON LinkPair (ToPageID1 ASC, ToPageID2 ASC);
-CREATE INDEX IF NOT EXISTS index_LinkPair_ToPageID2 ON LinkPair (ToPageID2 ASC, ToPageID2 ASC);
 
 "
 
@@ -164,45 +155,6 @@ let initializeDatabase dbPath =
           progress 1
       )
 
-  let indexLinkPairs() =
-    use find = DB.prepare "SELECT rowid FROM Page WHERE LinkPairsIndexed=0" 0
-    let todo = DB.execReadSeq find [] (fun reader -> reader.GetInt32(0))
-
-    use findLinks = DB.prepare "SELECT ToPageID FROM Link WHERE FromPageID=?" 1
-    
-    use insLP = DB.prepare "INSERT INTO LinkPair (ToPageID1, ToPageID2, Count) VALUES (?, ?, 1)" 2
-    use incLP = DB.prepare "UPDATE LinkPair SET Count=Count+1 WHERE ToPageID1=? AND ToPageID2=?" 2
-    use chkLP = DB.prepare "SELECT COUNT(*) FROM LinkPair WHERE ToPageID1=? AND ToPageID2=?" 2
-    use upd = DB.prepare "UPDATE Page SET LinkPairsIndexed=1 WHERE rowid=?" 1
-
-    let indexLinkPairsCount = countIndexLinkPairs()
-    beginProgress indexLinkPairsCount
-    chunk 200 todo
-    |> Seq.iter (fun todo' ->
-      DB.transaction (fun tx ->
-        for pageID in todo' do
-          let links = DB.execReadSeq findLinks [ pageID ] (fun reader -> reader.GetInt32(0))
-                      |> Seq.toArray
-          let pairs =
-            let ps = ref Set.empty
-            for a in links do
-              for b in links do
-                let pair = if a < b then a, b else b, a
-                if not <| (Set.contains pair !ps || a = b) then
-                  ps := Set.add pair !ps
-            !ps
-
-          for a, b in pairs do
-            let result = DB.execReadFirst chkLP [ a; b ] (fun reader -> reader.GetInt32(0))
-            match result with
-            | Some(1) -> DB.exec incLP [ a; b ] |> ignore
-            | _ -> DB.exec insLP [ a; b ] |> ignore
-
-          DB.exec upd [ pageID ] |> ignore
-          progress 1
-      )
-    )    
-
   let inline needToDo name decide task none =
     if decide then logged name task
     else printfn "No need to %s" name; none
@@ -231,7 +183,6 @@ let initializeDatabase dbPath =
   needToDo "insert page names" needToInsertPageNames (insertPageNames index nsMap) ()
   needToDo "insert page contents" needToInsertPageContents insertPageContents ()
   needToDo "index links" needToIndexLinks indexLinks ()
-  needToDo "index link pairs" needToIndexLinkPairs indexLinkPairs ()
   
   (* CLEANUP *)
   Data.onDisconnect()
