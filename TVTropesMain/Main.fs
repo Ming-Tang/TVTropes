@@ -1,7 +1,7 @@
 ﻿module TVTropes.Main
 
 open System
-open System.Data.SQLite
+open Mono.Data.Sqlite
 open System.Diagnostics
 open TVTropes
 open TVTropes.Timing
@@ -45,7 +45,8 @@ let initializeDatabase dbPath =
   (* INIT *)
   
   use conn = logged (sprintf "Connect to database: %s" dbPath) (fun () ->
-    (new SQLiteConnection(sprintf "Data Source=%s" dbPath)).OpenAndReturn()
+    let c = new SqliteConnection(sprintf "Data Source=%s" dbPath)
+    c.Open(); c
   )
 
   Data.onConnect()
@@ -223,8 +224,8 @@ let main (argv : string[]) =
   let err = System.Console.Error
 
   //let path = @"C:\Users\Ming\Documents\Visual Studio 2013\Projects\TVTropes\TVTropesTest\Testing Data"
-  let path = @"C:\Users\Ming\Documents\TVTropesBackup"
-  let db = @"database4.sqlite"
+  let path = @"/Users/mingtang/Downloads/TVTropesArticleBackupjune2012/TVTropesBackup"
+  let db = @"database.sqlite"
   let dbFull = sprintf "%s\\%s" path db
   
   Backup.setBackupPath path

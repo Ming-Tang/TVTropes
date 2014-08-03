@@ -1,13 +1,13 @@
 ﻿module TVTropes.DB
 
 open System
-open System.Data.SQLite
+open Mono.Data.Sqlite
 
-type Connection = SQLiteConnection
+type Connection = SqliteConnection
 type CommandText = string
-type Command = SQLiteCommand
-type Reader = SQLiteDataReader
-type Transaction = SQLiteTransaction
+type Command = SqliteCommand
+type Reader = SqliteDataReader
+type Transaction = SqliteTransaction
 type TableName = string
 type ColumnName = string
 type WhereClause = string
@@ -16,7 +16,7 @@ type Parameters = seq<obj>
 let mutable private conn : Connection = null
 
 let connect path =
-  conn <- (new SQLiteConnection(sprintf "Data Source=%s" path)).OpenAndReturn()
+  conn <- let c = new SqliteConnection(sprintf "URI=file:%s" path) in c.Open(); c
 
 let disconnect() =
   if conn <> null then conn.Close()
@@ -49,7 +49,7 @@ let prepare text n =
   let cmd = conn.CreateCommand()
   cmd.CommandText <- text
   for i in 1 .. n do
-    let p = new SQLiteParameter()
+    let p = new SqliteParameter()
     cmd.Parameters.Add(p) |> ignore
   cmd
 

@@ -3,22 +3,22 @@
   /// The DB module handles database interaction
   module DB =
 
-    open System.Data.SQLite
+    open Mono.Data.Sqlite
 
     /// A database connection
-    type Connection = SQLiteConnection
+    type Connection = SqliteConnection
 
     /// A database command string
     type CommandText = string
 
     /// A database command object
-    type Command = SQLiteCommand
+    type Command = SqliteCommand
 
     /// A database reader object
-    type Reader = SQLiteDataReader
+    type Reader = SqliteDataReader
 
     /// A database transaction object
-    type Transaction = SQLiteTransaction
+    type Transaction = SqliteTransaction
 
     /// A table name
     type TableName = string
