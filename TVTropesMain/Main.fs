@@ -102,7 +102,7 @@ let initializeDatabase dbPath =
   
   let countInsertPageContents() = DB.count "Page WHERE ContentsAdded=0"
   let countIndexLinks() = DB.count "Page WHERE LinksIndexed=0"
-  let countIndexLinkPairs() = DB.count "Page WHERE LinkPairsIndexed=0"
+  //let countIndexLinkPairs() = DB.count "Page WHERE LinkPairsIndexed=0"
 
   let insertPageContents() =
     use find = DB.prepare "SELECT rowid, Path FROM Page WHERE ContentsAdded=0" 0
@@ -173,7 +173,7 @@ let initializeDatabase dbPath =
   let needToInsertPageNames = DB.isEmpty "Page"
   let needToInsertPageContents = needToInsertPageNames || 0 <> countInsertPageContents()
   let needToIndexLinks = needToInsertPageNames || 0 <> countIndexLinks()
-  let needToIndexLinkPairs = needToInsertPageNames || 0 <> countIndexLinkPairs()
+  //let needToIndexLinkPairs = needToInsertPageNames || 0 <> countIndexLinkPairs()
   let needToIndexFiles = needToIndexNamespaces || needToInsertPageNames
   endLog()
 
@@ -226,13 +226,13 @@ let main (argv : string[]) =
   //let path = @"C:\Users\Ming\Documents\Visual Studio 2013\Projects\TVTropes\TVTropesTest\Testing Data"
   let path = @"/Users/mingtang/Downloads/TVTropesArticleBackupjune2012/TVTropesBackup"
   let db = @"database.sqlite"
-  let dbFull = sprintf "%s\\%s" path db
+  let dbFull = sprintf "%s/%s" path db
   
   Backup.setBackupPath path
   DB.connect dbFull
   initializeDatabase dbFull
 
-  interactive()
+  //interactive()
 
   printf "Press any key to exit."
   Console.ReadKey() |> ignore
